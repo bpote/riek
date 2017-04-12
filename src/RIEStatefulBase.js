@@ -22,6 +22,9 @@ export default class RIEStatefulBase extends RIEBase {
 
     cancelEditing = () => {
         this.setState({editing: false, invalid: false});
+        if (typeof this.props.blurCallback === 'function') {
+          this.props.blurCallback()
+        }
     };
 
     keyDown = (event) => {

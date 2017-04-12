@@ -17637,6 +17637,9 @@
 
 	        _this.cancelEditing = function () {
 	            _this.setState({ editing: false, invalid: false });
+	            if (typeof _this.props.blurCallback === 'function') {
+	                _this.props.blurCallback();
+	            }
 	        };
 
 	        _this.keyDown = function (event) {
